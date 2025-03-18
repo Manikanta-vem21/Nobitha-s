@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         texture.mapping = THREE.EquirectangularReflectionMapping;
         scene.environment = texture;
         scene.background = null;
-         // ✅ Rotate HDRI using matrix transformation
+         //  Rotate HDRI using matrix transformation
         texture.rotation = Math.PI ;  // Adjust the angle as needed
         texture.center.set(0.5, 0.5); // Center rotation
     });
@@ -44,13 +44,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 scene.add(ambientLight);
 
-// 🔥 Reduce intensity of shadow-casting lights
+//  Reduce intensity of shadow-casting lights
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.2);
 directionalLight.position.set(5, 10, 5);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
-// ✅ Reduce shadow map size to improve performance
+//  Reduce shadow map size to improve performance
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 directionalLight.shadow.mapSize.width = 1024; // Default is 2048, reducing it speeds up rendering
@@ -77,11 +77,11 @@ directionalLight.shadow.mapSize.height = 1024;
 loader.load(
     "NOBITHA_OPTIMIZED.glb",
     (gltf) => {
-        console.log("✅ GLB Loaded Successfully");
+        console.log(" GLB Loaded Successfully");
         scene.add(gltf.scene);
     },
     undefined,
-    (error) => console.error("❌ GLB Load Error:", error)
+    (error) => console.error(" GLB Load Error:", error)
 );
     // Animation Loop
     function animate() {
